@@ -1,0 +1,6 @@
+package sysinit
+
+
+func dbinit() {
+
+}
