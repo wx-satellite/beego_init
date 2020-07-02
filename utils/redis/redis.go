@@ -3,6 +3,7 @@ package redis
 import (
 	"encoding/json"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/gomodule/redigo/redis"
 	"time"
 )
@@ -16,8 +17,8 @@ var (
 
 
 func Init() {
-	address := beego.AppConfig.String("redis_address")
-	password := beego.AppConfig.String("redis_password")
+	address := beego.AppConfig.String("redis::address")
+	password := beego.AppConfig.String("redis::password")
 	if "" == address {
 		address = "127.0.0.1:6379"
 	}
@@ -94,6 +95,12 @@ func do(cmd string, key interface{}, args ...interface{}) (res interface{}, err 
 
 	params = append(params, args...)
 
-	return con.Do(cmd, params...)
+	res, err = con.Do(cmd, params...)
+
+	if err != nil {
+		logs.Error("redis操作失败", cmd, params)
+	}
+
+	return
 
 }
