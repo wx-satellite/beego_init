@@ -1,0 +1,2 @@
+2020/07/03 11:36:42.643 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+2020/07/03 11:38:03.280 [D] [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    136.878µs|   match|[97;44m GET     [0m /v1/test/home   r:/v1/test/home

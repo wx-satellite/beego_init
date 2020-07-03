@@ -21,12 +21,12 @@ func dbinit(aliases ...string) {
 		for _, alias := range aliases {
 			registerMysqlDatabase(alias)
 			if "w" == alias {
-				_ = orm.RunSyncdb("default", false, isDev)
+				//_ = orm.RunSyncdb("default", false, isDev)
 			}
 		}
 	} else {
 		registerMysqlDatabase("w")
-		_ = orm.RunSyncdb("default", false, isDev)
+		//_ = orm.RunSyncdb("default", false, isDev)
 	}
 
 	// 开启调试
