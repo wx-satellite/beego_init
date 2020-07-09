@@ -2,10 +2,11 @@ package models
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
 )
 
 func init() {
-	//orm.RegisterModel(new(User))
+	orm.RegisterModel()
 }
 
 func TablePrefix() string {
